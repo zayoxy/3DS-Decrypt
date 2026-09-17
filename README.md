@@ -9,6 +9,7 @@ All cryptographic keys are hardcoded directly in the scripts. Compatible with mo
 ## Table of Contents
 
 - [Scripts](#scripts)
+- [Modifications from the original](#modifications-from-the-original)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -21,6 +22,12 @@ All cryptographic keys are hardcoded directly in the scripts. Compatible with mo
 - [License](#license)
 
 ---
+
+## Modifications from the original
+
+- Added UV support for simply installing the needed dependencies and running the scripts in a virtual environment.
+- Added argparse support for streamlined CLI usage, and automatically recognize `.3ds` and `.cia` files for decryption to use the correct script accordingly.
+- Cleaned the original scripts code with IDE auto formatting to remove some warnings, same functionality as the original scripts.
 
 ## Scripts
 
@@ -42,16 +49,20 @@ All cryptographic keys are hardcoded directly in the scripts. Compatible with mo
 
 ## Installation
 
-```bash
-pip install pycryptodome
-```
-
 Then clone the repository:
 
 ```bash
-git clone https://github.com/aszuraz/3DS-Decrypt.git
+git clone https://github.com/zayoxy/3DS-Decrypt.git
 cd 3DS-Decrypt
 ```
+
+Then
+
+```bash
+uv sync
+```
+
+> Can be omitted, as running with UV will automatically install the dependencies in a virtual environment.
 
 ---
 
@@ -60,7 +71,7 @@ cd 3DS-Decrypt
 ### Decrypt a `.3ds` file
 
 ```bash
-python decrypt_3ds.py "name-of-your-rom.3ds"
+uv run decrypt-3ds "name-of-your-rom.3ds"
 ```
 
 The ROM is decrypted **in-place** — the original file is modified directly. Make a backup first if needed.
