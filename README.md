@@ -79,11 +79,7 @@ The ROM is decrypted **in-place** — the original file is modified directly. Ma
 ### Decrypt a `.cia` file
 
 ```bash
-# Single file
-python decrypt_cia.py "game.cia"
-
-# Batch mode — decrypts all .cia files in the current folder
-python decrypt_cia.py
+uv run decrypt-3ds "game.cia"
 ```
 
 Output is saved as `game-decrypted.cia` alongside the original. The source file is never modified.
